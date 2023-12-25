@@ -8,9 +8,11 @@ const movie_validator = async (req, res, next) => {
         return res.status(400).json({ error: 'Dados obrigatórios faltando.' });
     }
 
-    const movieExists = await Movie.findOne({ title, description, trailer  });
+    const title_exist = await Movie.findOne({ title });
+    const description_exist = await Movie.findOne({ description });
+    const trailer_exist = await Movie.findOne({ trailer});
 
-    if (movieExists) {
+    if (title_exist || description_exist || trailer_exist) {
         return res.status(400).json({ error: 'Filme já cadastrado.' });
     }
 

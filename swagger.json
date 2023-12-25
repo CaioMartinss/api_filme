@@ -35,7 +35,7 @@
                 }
             }
         },
-        "/users/add": {
+        "/insertion": {
             "post": {
                 "summary": "Adiciona um novo usuário",
                 "requestBody": {
@@ -56,6 +56,66 @@
                                 "example": {
                                     "id": 3,
                                     "name": "Novo Usuário"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/delete/id": {
+            "delete": {
+                "summary": "Deleta um usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID do usuário a ser deletado",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Usuário deletado com sucesso"
+                    }
+                }
+            }
+        },
+        "/update/id": {
+            "put": {
+                "summary": "Atualiza um usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID do usuário a ser atualizado",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "name": "Usuário Atualizado"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuário atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "id": 1,
+                                    "name": "Usuário Atualizado"
                                 }
                             }
                         }

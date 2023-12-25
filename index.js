@@ -54,6 +54,7 @@ app.delete('/delete/:id', async (req, res) => {
     try {
         const deleteMovie = await Movie.findByIdAndDelete(req.params.id);
         res.json(deleteMovie);
+        res.json({ message: 'Filme deletado com sucesso' });
     } catch (error) {
         res.status(500).json({ error: 'Erro ao deletar filme' });
     }
