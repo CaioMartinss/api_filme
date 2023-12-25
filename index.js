@@ -1,12 +1,19 @@
+
 import express from 'express';
-import Movie from './models/Movie.js';
+import Movie from './src/models/Movie.js';
+import movie_validator from './src/controllers/movie_validator.js';
 
 import swaggerUi from 'swagger-ui-express';
-import swaggerDocument from './swagger.js';
 
+
+import  swaggerDocument  from './swagger.json' assert {
+    type: 'json',
+    integrity: 'sha384-ABC123'
+};
 
 // Conectar ao MongoDB
-import './db/connection.js';
+import './src/db/connection.js';
+
 
 
 const app = express();
@@ -56,9 +63,11 @@ app.delete('/delete/:id', async (req, res) => {
 // Rota para adicionar um novo usuário
 app.post('/insert', async (req, res) => {
     try {
-        const { title, description, trailer } = req.body;
-        const newMovie = await Movie.create({ title, description, trailer });
-        res.json(newMovie);
+        movie_validator(req, res, async () => {
+            const { title, description, trailer } = req.body;
+            const newMovie = await Movie.create({ title, description, trailer });
+            res.json(newMovie);
+        });
     } catch (error) {
         res.status(500).json({ error: 'Erro ao inserir filme' });
     }

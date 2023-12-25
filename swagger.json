@@ -1,0 +1,67 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "API de filmes",
+        "version": "1.0.0",
+        "description": "Documentação da API de filmes"
+    },
+    "paths": {
+        "/users": {
+            "get": {
+                "summary": "Obtém a lista de usuários",
+                "responses": {
+                    "200": {
+                        "description": "Lista de usuários recuperada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "id": 1,
+                                        "title": "piratas do caribe",
+                                        "description": "filme de pirata",
+                                        "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk"
+
+                                    },
+                                    {
+                                        "id": 2,
+                                        "title": "o senhor dos aneis",
+                                        "description": "filme de magia",
+                                        "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/add": {
+            "post": {
+                "summary": "Adiciona um novo usuário",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "name": "Novo Usuário"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário adicionado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "id": 3,
+                                    "name": "Novo Usuário"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
