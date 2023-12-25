@@ -8,10 +8,10 @@
     "paths": {
         "/users": {
             "get": {
-                "summary": "Obtém a lista de usuários",
+                "summary": "Obtém a lista de filmes",
                 "responses": {
                     "200": {
-                        "description": "Lista de usuários recuperada com sucesso",
+                        "description": "Lista de filme recuperada com sucesso",
                         "content": {
                             "application/json": {
                                 "example": [
@@ -37,25 +37,35 @@
         },
         "/insertion": {
             "post": {
-                "summary": "Adiciona um novo usuário",
+                "summary": "Adiciona um novo Filme",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "example": {
-                                "name": "Novo Usuário"
+                                "name": "Novo Filme"
                             }
                         }
                     }
                 },
                 "responses": {
                     "201": {
-                        "description": "Usuário adicionado com sucesso",
+                        "description": "filme adicionado com sucesso",
                         "content": {
                             "application/json": {
                                 "example": {
                                     "id": 3,
-                                    "name": "Novo Usuário"
+                                    "name": "Novo Filme"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro ao adicionar filme",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Filme já cadastrado"
                                 }
                             }
                         }
@@ -65,13 +75,13 @@
         },
         "/delete/id": {
             "delete": {
-                "summary": "Deleta um usuário",
+                "summary": "Deleta um filme",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "ID do usuário a ser deletado",
+                        "description": "ID do filme a ser deletado",
                         "schema": {
                             "type": "integer"
                         }
@@ -79,20 +89,20 @@
                 ],
                 "responses": {
                     "204": {
-                        "description": "Usuário deletado com sucesso"
+                        "description": "Filme deletado com sucesso"
                     }
                 }
             }
         },
         "/update/id": {
             "put": {
-                "summary": "Atualiza um usuário",
+                "summary": "Atualiza um filme",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "description": "ID do usuário a ser atualizado",
+                        "description": "ID do filme a ser atualizado",
                         "schema": {
                             "type": "integer"
                         }
@@ -103,19 +113,19 @@
                     "content": {
                         "application/json": {
                             "example": {
-                                "name": "Usuário Atualizado"
+                                "name": "Filme Atualizado"
                             }
                         }
                     }
                 },
                 "responses": {
                     "200": {
-                        "description": "Usuário atualizado com sucesso",
+                        "description": "Filme atualizado com sucesso",
                         "content": {
                             "application/json": {
                                 "example": {
                                     "id": 1,
-                                    "name": "Usuário Atualizado"
+                                    "name": "Filme Atualizado"
                                 }
                             }
                         }
