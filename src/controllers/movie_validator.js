@@ -32,6 +32,7 @@ function verifica_genero(genero) {
 
 
 //validar title, description e trailer
+
 const movie_validator = async (req, res, next) => {
     const { title, description, trailer, genger } = req.body;
 
