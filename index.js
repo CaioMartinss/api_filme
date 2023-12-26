@@ -6,6 +6,7 @@ import movie_router_insert from './src/routes/movies/insert.js';
 import movie_router_list from './src/routes/movies/list.js';
 import movie_router_delete from './src/routes/movies/delete.js';
 import movie_router_update from './src/routes/movies/update.js';
+import movie_router_list_genger from './src/routes/movies/list_genger.js';
 
 import  swaggerDocument  from './swagger.json' assert {
     type: 'json',
@@ -33,6 +34,7 @@ app.use('/insert', movie_router_insert);
 app.use('/list', movie_router_list);
 app.use('/delete/:id', movie_router_delete);
 app.use('/update/:id', movie_router_update);
+app.use('/genger', movie_router_list_genger);
 
 
 // Inicie o servidor
