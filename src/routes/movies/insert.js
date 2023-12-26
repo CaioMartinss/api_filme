@@ -16,8 +16,8 @@ app.use(express.json());
 app.post('/', async (req, res) => {
     try {
         movie_validator(req, res, async () => {
-            const { title, description, trailer } = req.body;
-            const newMovie = await Movie.create({ title, description, trailer });
+            const { title, description, trailer, genger } = req.body;
+            const newMovie = await Movie.create({ title, description, trailer, genger });
             res.json(newMovie);
         });
     } catch (error) {
