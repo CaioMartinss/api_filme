@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-//array de generos de filmes, o usuário irá somente conseguir colocar um genero de filme que tenha no array
-const generos = ["ação", "aventura", "sci-fi"];
-
-
 const Schema = new mongoose.Schema({
     title: {
         type: String,
@@ -20,7 +16,7 @@ const Schema = new mongoose.Schema({
         required: true,
     },
     genger: {
-        type: generos,
+        type: String,
         required: true,
     }
 });
