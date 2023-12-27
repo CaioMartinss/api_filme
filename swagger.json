@@ -6,7 +6,7 @@
         "description": "Documentação da API de filmes"
     },
     "paths": {
-        "/users": {
+        "/list": {
             "get": {
                 "summary": "Obtém a lista de filmes",
                 "responses": {
@@ -17,16 +17,18 @@
                                 "example": [
                                     {
                                         "id": 1,
-                                        "title": "piratas do caribe",
-                                        "description": "filme de pirata",
-                                        "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk"
+                                        "title": "pirates of the caribbean",
+                                        "description": "pirate movie",
+                                        "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk",
+                                        "genero": "adventure"
 
                                     },
                                     {
                                         "id": 2,
-                                        "title": "o senhor dos aneis",
-                                        "description": "filme de magia",
-                                        "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk"
+                                        "title": "the lord of the rings",
+                                        "description": "a magic movie",
+                                        "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk",
+                                        "genger": "magic"
                                     }
                                 ]
                             }
@@ -35,7 +37,7 @@
                 }
             }
         },
-        "/insertion": {
+        "/insert": {
             "post": {
                 "summary": "Adiciona um novo Filme",
                 "requestBody": {
@@ -43,7 +45,10 @@
                     "content": {
                         "application/json": {
                             "example": {
-                                "name": "Novo Filme"
+                                "title": "Novo Filme",
+                                "description": "Filme de ação",
+                                "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk",
+                                "genero": "action"
                             }
                         }
                     }
@@ -55,7 +60,10 @@
                             "application/json": {
                                 "example": {
                                     "id": 3,
-                                    "name": "Novo Filme"
+                                    "title": "Novo Filme",
+                                    "description": "Filme de ação",
+                                    "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk",
+                                    "genero": "action"
                                 }
                             }
                         }
