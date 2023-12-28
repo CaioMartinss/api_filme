@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 
-app.get('/', async (req, res) => {
+app.get('/genger', async (req, res) => {
     try {
         const Movies = await Movie.find();
         res.json(Movies);

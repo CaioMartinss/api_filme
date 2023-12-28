@@ -13,9 +13,8 @@ const app = express();
 // Middleware para análise de JSON
 app.use(express.json());
 
-app.post('/', verify_exist_movie, verify_genger, verify_fields, async (req, res) => {
+app.post('/insert', verify_exist_movie, verify_genger, verify_fields, async (req, res) => {
     try {
-        // Agora você pode criar o filme com segurança
         const movie = await Movie.create(req.body);
         res.status(201).json({ movie });
     } catch (error) {

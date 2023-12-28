@@ -19,7 +19,6 @@ import './src/db/connection.js';
 
 
 
-
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -30,11 +29,11 @@ app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
-app.use('/insert', movie_router_insert);
-app.use('/list', movie_router_list);
-app.use('/delete/:id', movie_router_delete);
-app.use('/update/:id', movie_router_update);
-app.use('/genger', movie_router_list_genger);
+app.use('/', movie_router_insert);
+app.use('/', movie_router_list);
+app.use('/', movie_router_delete);
+app.use('/', movie_router_update);
+app.use('/', movie_router_list_genger);
 
 
 // Inicie o servidor
