@@ -1,15 +1,27 @@
-// src/controllers/__tests__/movie_validator.test.js
+import verify_fields from "../../controllers/verify_fields";
 
-import  verifica_genero  from '../../controllers/verify_fields'; // Importe a função a ser testada
 
-describe('verifica_genero function', () => {
-    test('Should return true for an existing genre', () => {
-        const result = verifica_genero('ação');
-        expect(result).toBe(true);
-    });
+describe("test para verificar se os campos estão preenchidos", () => {
+    it("deve retornar erro se algum campo estiver vazio", () => {
+        const req = {
+            body: {
+                title: "",
+                description: "",
+                trailer: "",
+                genger: ""
+            }
+        };
 
-    test('Should return false for a non-existing genre', () => {
-        const result = verifica_genero('inexistente');
-        expect(result).toBe(false);
+        const res = {
+            status: jest.fn(() => res),
+            json: jest.fn(() => res)
+        };
+
+        const next = jest.fn();
+
+        verify_fields(req, res, next);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.json).toHaveBeenCalledWith({ error: "Dados obrigatórios faltando." });
     });
 });
