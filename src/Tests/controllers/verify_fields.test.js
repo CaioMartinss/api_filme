@@ -8,7 +8,7 @@ describe("test para verificar se os campos estão preenchidos", () => {
                 title: "",
                 description: "",
                 trailer: "",
-                genger: ""
+                gender: ""
             }
         };
 

@@ -26,9 +26,9 @@ function verifica_genero(genero) {
 
 
 const validate_fields = (req, res, next) => {
-    const { genger } = req.body;
+    const { gender } = req.body;
 
-    if (!verifica_genero(genger)) {
+    if (!verifica_genero(gender)) {
         return res.status(400).json({ error: 'Gênero não existe.' });
     }
     next();

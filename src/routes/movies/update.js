@@ -19,8 +19,8 @@ app.put('/update/:id', async (req, res) => {
             return res.status(404).json({ error: 'Filme não encontrado' });
         }
 
-        const { title, description, trailer, genger } = req.body;
-        const updateMovie = await Movie.findByIdAndUpdate(req.params.id, { title, description, trailer, genger});
+        const { title, description, trailer, gender } = req.body;
+        const updateMovie = await Movie.findByIdAndUpdate(req.params.id, { title, description, trailer, gender });
         res.json({ message: 'Filme atualizado com sucesso', updateMovie });
     } catch (error) {
         res.status(500).json({ error: 'Erro ao atualizar filme' });
