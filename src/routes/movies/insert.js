@@ -1,30 +1,26 @@
-import movie_validator from '../../controllers/movie_validator.js';
+import verify_exist_movie from '../../controllers/verify_exist_movie.js';
+import verify_gender from '../../controllers/verify_gender.js';
+import verify_fields from '../../controllers/verify_fields.js';
+
 
 import express from 'express';
 import Movie from '../../models/Movie.js';
 import '../../db/connection.js';
 
 
-
 const app = express();
-
-
 
 // Middleware para análise de JSON
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.post('/insert', verify_exist_movie, verify_gender, verify_fields, async (req, res) => {
     try {
-        movie_validator(req, res, async () => {
-            const { title, description, trailer, genger } = req.body;
-            const newMovie = await Movie.create({ title, description, trailer, genger });
-            res.json(newMovie);
-        });
+        const movie = await Movie.create(req.body);
+        res.status(201).json({ movie });
     } catch (error) {
         res.status(500).json({ error: 'Erro ao inserir filme' });
     }
 });
-
 
 export default app;
 
