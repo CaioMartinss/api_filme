@@ -9,23 +9,30 @@
 </head>
 
 <body>
-        <section class="table-container">
-            <section class="container">
-                <table id="movie-table">
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Trailer</th>
-                            <th>Gênero</th>
-                        </tr>
-                    </thead>
-                    <tbody id="movie-list"></tbody>
-                </table>
-            </section>
+    <section class="pesquisar">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Pesquisar">
+            <button type="submit" id="search-button">Pesquisar</button>
+        </form>
+    </section>
+    <section class="table-container">
+        <section class="container">
+            <table id="movie-table">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Trailer</th>
+                        <th>Gênero</th>
+                    </tr>
+                </thead>
+                <tbody id="movie-list"></tbody>
+            </table>
         </section>
+    </section>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="search.js"></script>
 </body>
 
 </html>
