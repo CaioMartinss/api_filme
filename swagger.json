@@ -21,14 +21,13 @@
                                         "description": "pirate movie",
                                         "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk",
                                         "genero": "adventure"
-
                                     },
                                     {
                                         "id": 2,
                                         "title": "the lord of the rings",
                                         "description": "a magic movie",
                                         "trailer": "https://www.youtube.com/watch?v=1xo3af_6_Jk",
-                                        "genger": "magic"
+                                        "gender": "magic"
                                     }
                                 ]
                             }

@@ -15,7 +15,7 @@ const Schema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    genger: {
+    gender: {
         type: String,
         required: true,
     }
