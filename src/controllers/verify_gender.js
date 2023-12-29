@@ -14,24 +14,25 @@ const generos =
         "ficção científica", "biografia", "esporte",
         "faroeste", "histórico", "religioso",
         "guerra", "médico", "político",
-        "suspense", "terror",
+        "suspense", "terror", "crime",
 
 
     ];
 
 //função para verificar se o genero que o usuário colocou é um genero que existe no array
 function verifica_genero(genero) {
-    return generos.includes(genero);
+    if(genero){
+        return generos.includes(genero.toLowerCase());
+    }
 }
 
 
-const validate_fields = (req, res, next) => {
+const validate_gender = (req, res, next) => {
     const { gender } = req.body;
-
     if (!verifica_genero(gender)) {
         return res.status(400).json({ error: 'Gênero não existe.' });
     }
     next();
 };
 
-export default validate_fields;
+export default validate_gender;
